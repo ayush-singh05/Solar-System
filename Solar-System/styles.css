@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+}
+.container {
+  font-size: 10px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+ 
+}
+.solarsystem {
+    position: absolute;
+    top: -5em;
+    left: -15em;
+    
+}
+.sun {
+    position: absolute;
+    top: 30em;
+    left: 73em;
+    width: 10em;
+    height: 10em;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+
+}
+.earth,.moon,.mars {
+    position: absolute;
+    border-style: solid;
+    border-color:white transparent transparent transparent ;
+    border-width: 0.2em 0.2em 0 0;
+    border-radius: 50%;
+}
+.imageearth {
+    position: absolute;
+    top: 10px;
+    left: 23em;
+    animation: orbit 36.5s linear infinite;
+}
+.earth {
+    top: 23em;
+    left: 618px;
+    width: 32em;
+    height: 32em;
+    animation: orbit 36.5s linear infinite;
+}
+.moon {
+    top: -7px;
+    right: 20px;
+    width: 8em;
+    height: 8em;
+    animation: orbit 2.7s linear infinite;
+}
+.moonimg {
+    position: absolute;
+    width: 40%;
+    top: 5px;
+    left: 60px;
+
+}
+.mars {
+    top: 26em;
+    left: 69em;
+    width: 18em;
+    height: 18em;
+    animation: orbit 68.7s linear infinite;
+
+}
+.earth::before,
+.moon::before,
+.mars::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+/* .earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: aqua;
+
+} */
+/* .moon::before {
+    top: 0.8em;
+    right: 0.8em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+
+} */
+.mars::before {
+    top: 1.5em;
+    right:1.5em;
+    width: 2em;
+    height: 2em;
+    background-color: silver;
+
+}
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+}
+.planet-name {
+    display: none;
+    position: absolute;
+    color: white;
+    font-size: 1.2em;
+}
+.sun:hover::before,
+.moon:hover::before,
+.earth:hover::before,
+.mars:hover::before {
+    content: attr(data-name);
+    position: absolute;
+    color: white;
+    font-size: 1.2em;
+    top: -1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+}
